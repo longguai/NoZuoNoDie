@@ -20,6 +20,7 @@
     </ClCompile>
     <ClCompile Include="..\Classes\GameScene.cpp" />
     <ClCompile Include="..\Classes\Hero.cpp" />
+    <ClCompile Include="..\Classes\MyBlock.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -30,6 +31,7 @@
     </ClInclude>
     <ClInclude Include="..\Classes\GameScene.h" />
     <ClInclude Include="..\Classes\Hero.h" />
+    <ClInclude Include="..\Classes\MyBlock.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
