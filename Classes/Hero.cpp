@@ -11,7 +11,7 @@ bool Hero::init()
 	memset(filename, 0, 128);
 	for (int i=0; i<5; i++)
 	{
-		sprintf(filename, "hero%d.png", i + 1);
+		sprintf(filename, "Hero%d.png", i + 1);
 		// get picture name for sprite cache
 		SpriteFrame *sf = SpriteFrameCache::getInstance()->spriteFrameByName(filename);
 		sfArray.pushBack(sf);
