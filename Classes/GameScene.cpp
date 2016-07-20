@@ -1,4 +1,6 @@
 #include "GameScene.h"
+#include "Hero.h"
+#include "MyBlock.h"
 
 
 cocos2d::Scene* GameScene::createScene()
@@ -39,3 +41,30 @@ bool GameScene::init()
 
 	return true;
 }
+
+void GameScene::update(float delta)
+{
+	Vector<Block*> blockArray;
+	// create block for count is number
+	currentFrameIndex++;
+	if (currentFrameIndex > nextFrameCount)
+	{
+		// number equal value, set new position 
+		resetFrameCount();
+		Sprite *pBlock = Block::create();
+		addChild(pBlock);
+		// add block to vector
+		blockArray.pushBack(blockArray);
+	}
+
+	for (int i=blockArray.size()-1;i>=0;i--)
+	{
+	}
+
+
+}
+void GameScene::resetFrameCount()
+{
+	currentFrameIndex = 0;
+	nextFrameCount = rand() % 40 + 30;
+	}
