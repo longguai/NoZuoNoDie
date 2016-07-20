@@ -67,4 +67,4 @@ void GameScene::resetFrameCount()
 {
 	currentFrameIndex = 0;
 	nextFrameCount = rand() % 40 + 30;
-	}
+}
