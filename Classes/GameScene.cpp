@@ -1,6 +1,7 @@
 #include "GameScene.h"
 #include "Hero.h"
 #include "MyBlock.h"
+#include "GameOver.h"
 
 
 cocos2d::Scene* GameScene::createScene()
@@ -76,7 +77,8 @@ void GameScene::update(float delta)
 			unscheduleUpdate();
 			stopAllActions();
 			// game over
-			// ...
+			Scene *gameOverScene = GameOver::scene();
+			Director::getInstance()->replaceScene(gameOverScene);
 			log("game over");
 		}
 	}
