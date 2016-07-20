@@ -22,9 +22,11 @@ bool GameScene::init()
 
 	// set touch operator
 	auto listener = EventListenerTouchOneByOne::create();
-	listener->onTouchBegan = [](Touch *touch, Event *event) {
+	listener->onTouchBegan = [&](Touch *touch, Event *event) {
+		JumpTo *jump = JumpTo::create(0.5, Vec2(_pHero->getPositionX(), _pHero->getPositionY()), 100, 1);
+		_pHero->runAction(jump);
 
-		return true;
+		return false;
 	};
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
@@ -59,6 +61,24 @@ void GameScene::update(float delta)
 
 	for (int i=blockArray.size()-1;i>=0;i--)
 	{
+		// is move screen over
+		Block *sp = blockArray.at(i);
+		if (sp->getPositionX()<0)
+		{
+			sp->removeFromParent();
+			blockArray.eraseObject(sp);
+			continue;
+		}
+
+		// is collide
+		if (_pHero->getBoundingBox().intersectsRect(sp->getBoundingBox()))
+		{
+			unscheduleUpdate();
+			stopAllActions();
+			// game over
+			// ...
+			log("game over");
+		}
 	}
 
 
